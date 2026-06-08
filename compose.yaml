@@ -1,0 +1,17 @@
+services:
+  mysql:
+    container_name: 'mysql-student-web-app'
+    image: 'mysql:latest'
+    environment:
+      - 'MYSQL_DATABASE=student_web_app'
+      - 'MYSQL_ROOT_PASSWORD=root'
+    volumes:
+      - './db/data:/var/lib/mysql'
+    ports:
+      - '3308:3306'
+    networks:
+      - db
+    restart: 'unless-stopped'
+networks:
+  db:
+    driver: bridge
