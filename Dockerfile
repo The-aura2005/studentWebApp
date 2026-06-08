@@ -6,7 +6,7 @@ COPY pom.xml .
 
 COPY src ./src
 # Build the application inside the container
-RUN mvm clean package -DskipTests
+RUN mvn clean package -DskipTests
 
 # Stage 2: Run the application using Java Runtime
 FROM eclipse-temurin:21-jdk-alpine
